@@ -21,10 +21,8 @@ fun MovieNavigation() {
     //////////////// STEP B////////////////////
     NavHost(navController = navController, startDestination = MovieScreenS1.HomeScreen.name) {
         composable(MovieScreenS1.HomeScreen.name) {
-
             //////////////// STEP C////////////////////
             HomeScreen(navController = navController)
-
         }
 
         composable(
@@ -33,7 +31,6 @@ fun MovieNavigation() {
                 type = NavType.StringType
             })
         ) {
-
             DetailScreen(navController = navController, it.arguments?.getString("movie"))
         }
 

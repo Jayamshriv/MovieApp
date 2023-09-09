@@ -21,9 +21,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.movieapp.MovieItem
+import com.example.movieapp.widgets.MovieItem
+import com.example.movieapp.model.DataManager
+import com.example.movieapp.model.Movie
 import com.example.movieapp.navigation.MovieScreenS1
-import com.example.movieapp.ui.theme.MovieAppTheme
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,7 +47,7 @@ fun HomeScreen(navController: NavController) {
             )
         }) {
         Surface(Modifier.padding(it)) {
-            MainContent(navController)
+            MainContent(navController, DataManager.data)
         }
     }
 }
@@ -54,19 +55,7 @@ fun HomeScreen(navController: NavController) {
 @Composable
 fun MainContent(
     navController: NavController,
-    movies: List<String> = listOf(
-        "Jaani Dushman",
-        "Mass",
-        "Jeene nhi dunga",
-        "Jaani Dushman",
-        "Mass",
-        "Jeene nhi dunga", "Jaani Dushman",
-        "Mass",
-        "Jeene nhi dunga",
-        "Jaani Dushman",
-        "Mass",
-        "Jeene nhi dunga"
-    ),
+    movies: Array<Movie>
 ) {
     LazyColumn(content = {
         items(items = movies) {
